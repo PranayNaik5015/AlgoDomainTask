@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.AlgoDomain</groupId>
+    <artifactId>TechnicalTask</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+
+    <properties>
+
+        <maven.version>3.1.1</maven.version>
+
+        <jdk.version>1.8</jdk.version>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <jackson-version>2.8.6</jackson-version>
+
+        <aws.sdk.version>1.11.136</aws.sdk.version>
+
+        <aws.lambda.sdk.version>1.11.114</aws.lambda.sdk.version>
+
+        <org.springframework-version>4.3.6.RELEASE</org.springframework-version>
+
+        <swagger.version>2.4.0</swagger.version>
+
+        <apache.common>1.3.2</apache.common>
+
+        <hibernate.version>5.0.12.Final</hibernate.version>
+
+        <slf4jVersion>1.6.1</slf4jVersion>
+
+        <spring.security.version>4.1.1.RELEASE</spring.security.version>
+
+    </properties>
+
+
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>1.4.4.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-hibernate5</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.3.156</version>
+        </dependency>
+
+        <!--    <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-core</artifactId>
+                <version>5.2.16.Final</version>
+            </dependency>-->
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>5.2.3.Final</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-testing</artifactId>
+            <version>5.0.12.Final</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+
+                <artifactId>maven-compiler-plugin</artifactId>
+
+                <version>3.5.1</version>
+
+
+                <configuration>
+
+                    <source> ${jdk.version} </source>
+
+                    <target> ${jdk.version} </target>
+
+                    <encoding>UTF-8 </encoding>
+
+                </configuration>
+            </plugin>
+
+            <plugin>
+
+
+                <groupId>org.springframework.boot</groupId>
+
+                <artifactId>spring-boot-maven-plugin</artifactId>
+
+
+                <configuration>
+
+                    <executable>true</executable>
+
+                    <outputDirectory>build</outputDirectory>
+
+                </configuration>
+
+
+                <executions>
+
+
+                    <execution>
+
+
+                        <goals>
+
+                            <goal>repackage</goal>
+
+                        </goals>
+
+                    </execution>
+
+                </executions>
+
+            </plugin>
+
+        </plugins>
+
+    </build>
+
+
+
+</project>
