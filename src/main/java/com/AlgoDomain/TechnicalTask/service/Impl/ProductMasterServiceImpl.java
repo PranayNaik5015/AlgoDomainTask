@@ -72,4 +72,12 @@ public class ProductMasterServiceImpl implements ProductMasterService {
         return flag;
     }
 
+    @Override
+    public List<ProductMasterDto> searchProductResService(ProductResponseDto productResponseDto) {
+
+        List<ProductMasterDto> list = productMasterDao.searchProductResDao(productResponseDto);
+
+        return list;
+    }
+
 }

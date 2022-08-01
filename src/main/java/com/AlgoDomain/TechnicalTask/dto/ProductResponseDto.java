@@ -15,4 +15,7 @@ public class ProductResponseDto {
 
     private Double endprice;
 
+    private String name;
+
+
 }

@@ -18,4 +18,7 @@ public interface ProductMasterDao {
     List<ProductMasterDto> ProductResponseDao(ProductResponseDto productResponseDto);
 
     Boolean productStatusByIdDao(Integer id);
+
+    List<ProductMasterDto> searchProductResDao(ProductResponseDto productResponseDto);
+
 }

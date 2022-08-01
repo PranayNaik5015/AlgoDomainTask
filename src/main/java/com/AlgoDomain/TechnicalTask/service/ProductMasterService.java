@@ -18,4 +18,7 @@ public interface ProductMasterService {
     List<ProductMasterDto> productResponseService(ProductResponseDto productResponseDto);
 
     Boolean productStatusByIdServce(Integer id);
+
+    List<ProductMasterDto> searchProductResService(ProductResponseDto productResponseDto);
+
 }

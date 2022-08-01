@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="TechnicalTask" />
+        <module name="algodomains-task" />
       </profile>
     </annotationProcessing>
   </component>

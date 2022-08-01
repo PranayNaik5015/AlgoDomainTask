@@ -167,4 +167,68 @@ public class ProductMasterDaoImpl implements ProductMasterDao {
         }
         return false;
     }
+
+    @Override
+    public List searchProductResDao(ProductResponseDto productResponseDto) {
+
+        Session session = null;
+
+        List<ProductMasterDto> list = null;
+
+        try {
+            session = sessionFactory.openSession();
+
+            String action = "select product.id as id, product.type as type, product.category as category, product.name as name, product.price as price, product.isActive as isActive " +
+                    " from ProductMasterModel as product " +
+                    " where product.isActive = 'Y'";
+
+            if (productResponseDto.getCategory() != null){
+                action += "and (product.category = :category)";
+            }
+
+            if (productResponseDto.getType() != null){
+                action += "and (product.type = :type)";
+            }
+
+            if (productResponseDto.getName() != null){
+                action += "and (product.name = :name)";
+            }
+
+            if (productResponseDto.getStartprice() != null && productResponseDto.getEndprice() != null){
+                action += "and (product.price between :startprice and :endprice)";
+            }
+
+            Query query = session.createQuery(action +"group by product.id");
+
+            if (productResponseDto.getCategory() != null) {
+                query.setParameter("category", productResponseDto.getCategory());
+            }
+
+            if (productResponseDto.getType() != null){
+                query.setParameter("type", productResponseDto.getType());
+            }
+
+            if (productResponseDto.getName() != null){
+                query.setParameter("name", productResponseDto.getName());
+            }
+
+            if (productResponseDto.getStartprice() != null && productResponseDto.getEndprice() != null){
+                query.setParameter("startprice", productResponseDto.getStartprice());
+                query.setParameter("endprice", productResponseDto.getEndprice());
+            }
+
+            query.setResultTransformer(Transformers.aliasToBean(ProductMasterDto.class));
+
+            list = query.list();
+
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            session.close();
+        }
+        return list;
+    }
+
 }

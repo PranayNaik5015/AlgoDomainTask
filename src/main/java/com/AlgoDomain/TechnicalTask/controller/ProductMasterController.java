@@ -134,4 +134,24 @@ public class ProductMasterController {
         return responseVO;
     }
 
+//    search product using single field
+
+    @PostMapping(value = "searchProductBySingleField")
+
+    public ResponseVo<List> searchProductBySingleField(@RequestBody ProductResponseDto productResponseDto) {
+
+        ResponseVo<List> responseVo = new ResponseVo<>();
+
+        List<ProductMasterDto> list = productMasterService.searchProductResService(productResponseDto);
+
+        if (list.size() != 0) {
+            responseVo.setStatusCode(String.valueOf(HttpStatus.OK));
+            responseVo.setMessage("Data Found!!");
+            responseVo.setResult(list);
+        } else {
+            responseVo.setStatusCode(String.valueOf(HttpStatus.INTERNAL_SERVER_ERROR));
+            responseVo.setMessage("Data Not Found!!");
+        }
+        return responseVo;
+    }
 }
