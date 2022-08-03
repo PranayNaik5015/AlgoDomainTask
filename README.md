@@ -8,7 +8,7 @@ Then import project in Maven.
  
 MySQL database is used in this project so you require XAMPP
 
-I have uploaded my database file in GitLab you can import that file to get 
+I have uploaded my database file in Github you can import that file to get 
 access on database.
 
 For Swagger documentation use this link :
